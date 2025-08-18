@@ -43,3 +43,12 @@ export type GuardianResponse = {
     }[];
   };
 };
+
+export type NewsAPIArticle = {
+  title: string;
+  url: string;
+  publishedAt: string;
+  urlToImage?: string;
+  description?: string;
+  source?: { name?: string };
+};
