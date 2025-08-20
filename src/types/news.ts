@@ -8,6 +8,10 @@ export type NewsItem = {
   image?: string;
   // Optional description (NewsAPI: description)
   description?: string;
+  // Optional category for news categorization
+  category?: string;
+  // Optional author information
+  author?: string;
 };
 
 // NewsAPI.org response types
@@ -18,6 +22,7 @@ export type NewsAPIResponse = {
     publishedAt: string;
     urlToImage?: string;
     description?: string;
+    content?: string;
     source?: { name?: string };
   }[];
 };
@@ -29,7 +34,9 @@ export type GNewsResponse = {
     url: string;
     publishedAt: string;
     image?: string;
+    content?: string;
     source?: { name?: string };
+    description?: string;
   }[];
 };
 
@@ -50,5 +57,39 @@ export type NewsAPIArticle = {
   publishedAt: string;
   urlToImage?: string;
   description?: string;
+  content?: string;
   source?: { name?: string };
 };
+
+
+export type MediastackArticle = {
+  title: string;
+  url: string;
+  published_at: string;
+  source?: string;
+  image?: string;
+  description?: string;
+};
+
+export type MediastackResponse = {
+  data: MediastackArticle[];
+  // ...other fields if needed
+};
+
+//  <h2
+//         className="text-7xl font-extrabold my-25 relative inline-block"
+        
+//       >
+//         Top Headlines
+//         <span
+//           className="block absolute left-0 mx-auto"
+//           style={{
+//             height: "25px", // more height
+//             background: "#bae6fd",
+//             borderRadius: "0px",
+//             bottom: "2px",
+//             width: "100%", // exactly as wide as the text
+//             zIndex: -1,
+//           }}
+//         />
+//       </h2>
