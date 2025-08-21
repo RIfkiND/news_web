@@ -14,7 +14,8 @@ import {
   MediastackArticle,
   MediastackResponse,
 } from "@/types/news";
-
+import MobileHeader from "@/components/mobile/MobileHeader";
+import MobileCardBody from "@/components/mobile/MobileCardBody";
 // Dummy fetch function, replace with your real API call
 async function fetchNewsByCategory(slug: string): Promise<NewsItem[]> {
   // NewsAPI
@@ -107,8 +108,10 @@ export default function CategoryPage() {
     }
   };
 
-  return (
-    <>
+return (
+  <>
+    {/* Desktop */}
+    <div className="hidden md:block">
       <Header
         onSearch={setSearch}
         onCategoryChange={handleCategoryChange}
@@ -116,7 +119,6 @@ export default function CategoryPage() {
         selectedCat={slug}
       />
       <div className="max-w-8xl mx-auto px-2 py-10">
-        
         <CardBody
           news={news}
           loading={loading}
@@ -126,6 +128,24 @@ export default function CategoryPage() {
         />
       </div>
       <Footer />
-    </>
-  );
+    </div>
+
+    {/* Mobile */}
+    <div className="block md:hidden">
+      <MobileHeader
+        onSearch={setSearch}
+        onCategoryChange={handleCategoryChange}
+        search={search}
+        selectedCat={slug}
+      />
+      <MobileCardBody
+        news={news}
+        loading={loading}
+        setPage={setPage}
+        page={page}
+        category={slug}
+      />
+    </div>
+  </>
+);
 }

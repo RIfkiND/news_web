@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import MainBody from "@/components/MainBody";
 import Footer from "@/components/Footer";
 import MobileHeader from "@/components/mobile/MobileHeader";
- import MobileMainBody from "@/components/mobile/MobileMainBody";
+import MobileMainBody from "@/components/mobile/MobileMainBody";
 // import MobileFooter from "@/components/mobile/MobileFooter";
 // import Particles from "@/components/bits/Particel";
 
