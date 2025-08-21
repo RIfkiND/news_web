@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import CardBody from "@/components/CardBody";
-import Carousel from "@/components/Carousel";
+import MobileCardBody from "@/components/mobile/MobileCardBody";
+import MobileCarousel from "@/components/mobile/MobileCarousel";
 import {
   NewsItem,
   NewsAPIArticle,
@@ -12,7 +12,6 @@ import {
 
 const PAGE_SIZE = 10;
 
-// Add tech-related keywords for filtering
 const TECH_KEYWORDS = [
   "ai",
   "artificial intelligence",
@@ -46,7 +45,7 @@ function isTechNews(title: string, description?: string) {
   return TECH_KEYWORDS.some((kw) => text.includes(kw));
 }
 
-export default function MainBody({
+export default function MobileMainBody({
   search,
   selectedCat,
 }: {
@@ -98,9 +97,9 @@ export default function MainBody({
 
       // Fetch from Mediastack
       const mediastackRes = await fetch(
-        `http://api.mediastack.com/v1/news?access_key=${process.env.NEXT_PUBLIC_MEDIASTACK_API_KEY}&categories=technology&countries=us&limit=${
-          PAGE_SIZE * page
-        }`
+        `http://api.mediastack.com/v1/news?access_key=${
+          process.env.NEXT_PUBLIC_MEDIASTACK_API_KEY
+        }&categories=technology&countries=us&limit=${PAGE_SIZE * page}`
       );
       const mediastackData: MediastackResponse = await mediastackRes.json();
       const mediastackArticles: NewsItem[] = (mediastackData.data || []).map(
@@ -143,20 +142,26 @@ export default function MainBody({
       }
 
       setNews(combined);
-      timer = setTimeout(() => setLoading(false), 1500);
+      timer = setTimeout(() => setLoading(false), 1200);
     }
     fetchNews();
     return () => clearTimeout(timer);
   }, [page, search, selectedCat]);
 
-return (
-  <div className="max-w-8xl mx-auto px-2 py-10">
-    <Carousel news={news} loading={loading} />
-    <hr
-      className="my-6 border-black bg-black border-2 max-w-7xl mx-auto"
-      style={{ height: "8px" }}
-    />
-    <CardBody news={news} loading={loading} setPage={setPage} page={page} />
-  </div>
-);
+  return (
+    <div className="max-w-xl mx-auto px-1 py-6">
+        <MobileCarousel news={news} loading={loading} />
+      <hr
+        className="my-4 border-black bg-black border max-w-xl mx-auto"
+        style={{ height: "4px" }}
+      />
+      <MobileCardBody
+        news={news}
+        loading={loading}
+        setPage={setPage}
+        page={page}
+        category={selectedCat}
+      />
+    </div>
+  );
 }

@@ -1,11 +1,11 @@
 export default function Footer() {
   return (
-    <footer className="bg-white border-t mt-12 py-10">
+    <footer className="border-t mt-12 py-10">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
           {/* Left: Logo & About */}
           <div className="text-center md:text-left">
-            <div className="text-2xl font-bold mb-2">todaynews</div>
+            <div className="text-2xl font-bold mb-2">TechNews</div>
             <div className="text-gray-500 text-sm mb-4 max-w-xs">
               Your trusted source for the latest news in tech, sports, business,
               and entertainment.

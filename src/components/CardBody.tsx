@@ -62,8 +62,8 @@ export default function CardBody({
        ) : (
          news.map((item, idx) => (
            <div
-             key={item.url}
-             className="flex flex-col md:flex-row gap-8 items-center bg-white p-4 rounded-2xl"
+             key={item.url + "-" + idx}
+             className="flex flex-col md:flex-row gap-8 items-center  p-4 rounded-2xl"
              style={{ border: "none" }}
            >
              {item.image && item.image.startsWith("http") ? (

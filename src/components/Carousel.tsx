@@ -63,7 +63,7 @@ export default function Carousel({
           className="h-[380px] sm:h-[420px] md:h-[480px] lg:h-[520px] xl:h-[560px]"
         >
           {(loading ? Array(1).fill(null) : slides).map((item, idx) => (
-            <SwiperSlide key={idx}>
+            <SwiperSlide key={(item?.url ?? "slide") + "-" + idx}>
               <div className="relative w-full h-full">
                 {/* Background Image */}
                 {loading ? (
@@ -172,7 +172,7 @@ export default function Carousel({
                       <Skeleton key={index} className="w-3 h-3 rounded-full" />
                     ) : (
                       <button
-                        key={index}
+                        key={(slides[index]?.url ?? "dot") + "-" + index}
                         onClick={() => goToSlide(index)}
                         className={`w-3 h-3 border-2 transition-colors duration-200 cursor-pointer ${
                           index === activeIndex
