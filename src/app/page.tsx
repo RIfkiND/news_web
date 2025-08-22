@@ -2,9 +2,10 @@
 import DarkVeil from "@/components/bits/DarkVeil";
 import CardNav from "@/components/bits/CardNav";
 import React from "react";
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import GradientText from "@/components/bits/GradientText";
 import { FaRegNewspaper } from "react-icons/fa";
-import Image from "next/image";
+import Footer from "@/components/Footer/Footer";
+import Featured from "@/components/body/Featured";
 
 export default function Home() {
   const items = [
@@ -67,35 +68,15 @@ export default function Home() {
   ];
 
   return (
-    <div
-      style={{
-        width: "100vw",
-        height: "100vh",
-        position: "fixed",
-        top: 0,
-        left: 0,
-        zIndex: 0,
-        overflow: "hidden",
-      }}
-    >
-      {/* Background */}
-      <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+    <div className="relative min-h-screen w-full z-0 bg-black">
+      {/* Background only at the top */}
+      <div style={{ width: "100%", height: "600px", position: "relative" }}>
         <DarkVeil />
       </div>
 
-      {/* Foreground: Header and Centered Card */}
-      <div
-        style={{
-          position: "relative",
-          zIndex: 1,
-          width: "100vw",
-          height: "100vh",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        {/* Header */}
-        <div style={{ width: "100%", flex: "0 0 auto" }}>
+      {/* Foreground: Header and Main Content */}
+      <main className="relative z-10 w-full min-h-screen flex flex-col -mt-[600px] pt-[600px]">
+        <header className="w-full flex-none">
           <CardNav
             logo={<FaRegNewspaper size={32} />}
             logoAlt="Company Logo"
@@ -106,64 +87,26 @@ export default function Home() {
             buttonTextColor="#fff"
             ease="power3.out"
           />
+        </header>
+
+        {/* Featured is now right below the nav */}
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-12 -mt-100">
+          <Featured />
         </div>
 
-        {/* Centered Card */}
-        <div
-          style={{
-            flex: "1 1 0",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "100%",
-          }}
-        >
-          <CardContainer className="inter-var">
-            <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
-              <CardItem
-                translateZ="50"
-                className="text-xl font-bold text-neutral-600 dark:text-white"
-              >
-                Make things float in air
-              </CardItem>
-              <CardItem
-                as="p"
-                translateZ="60"
-                className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
-              >
-                Hover over this card to unleash the power of CSS perspective
-              </CardItem>
-              <CardItem translateZ="100" className="w-full mt-4">
-                <Image
-                  src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  height="1000"
-                  width="1000"
-                  className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
-                  alt="thumbnail"
-                />
-              </CardItem>
-              <div className="flex justify-between items-center mt-20">
-                <CardItem
-                  translateZ={20}
-                  as="a"
-                  href="https://twitter.com/mannupaaji"
-                  target="__blank"
-                  className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
-                >
-                  Try now →
-                </CardItem>
-                <CardItem
-                  translateZ={20}
-                  as="button"
-                  className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
-                >
-                  Sign up
-                </CardItem>
-              </div>
-            </CardBody>
-          </CardContainer>
-        </div>
-      </div>
+        <section className="flex-1 flex flex-col w-full max-w-7xl mx-auto px-4 md:px-12 pb-8 mt-20">
+          <GradientText
+            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+            animationSpeed={3}
+            showBorder={false}
+            className="custom-class text-5xl md:text-8xl font-extrabold text-left"
+          >
+            Weekly Top Tech News
+          </GradientText>
+        </section>
+
+        <Footer />
+      </main>
     </div>
   );
 }
