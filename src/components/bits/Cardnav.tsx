@@ -162,7 +162,7 @@ const CardNav: React.FC<CardNavProps> = ({
 
   return (
     <div
-      className={`card-nav-container absolute left-1/2 -translate-x-1/2 w-[90%] max-w-[800px] z-[99] top-[1.2em] md:top-[2em] ${className}`}
+      className={`card-nav-container absolute left-1/2 -translate-x-1/2 w-full max-w-[1200px] z-[99] top-[1.2em] md:top-[2em] ${className}`}
     >
       <nav
         ref={navRef}
@@ -195,19 +195,19 @@ const CardNav: React.FC<CardNavProps> = ({
           </div>
 
           <div className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none">
-  {typeof logo === "string" ? (
-    <Image
-      src={logo}
-      alt={logoAlt}
-      className="logo h-[28px] w-auto"
-      height={28}
-      width={120}
-      priority
-    />
-  ) : (
-    logo // Render the ReactNode (icon)
-  )}
-</div>
+            {typeof logo === "string" ? (
+              <Image
+                src={logo}
+                alt={logoAlt}
+                className="logo h-[28px] w-auto"
+                height={28}
+                width={120}
+                priority
+              />
+            ) : (
+              logo // Render the ReactNode (icon)
+            )}
+          </div>
         </div>
 
         <div

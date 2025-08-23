@@ -1,12 +1,18 @@
 "use client";
 import DarkVeil from "@/components/bits/DarkVeil";
-import CardNav from "@/components/bits/CardNav";
+import Header from "@/components/Header/Header";
 import React from "react";
 import GradientText from "@/components/bits/GradientText";
 import { FaRegNewspaper } from "react-icons/fa";
 import Footer from "@/components/Footer/Footer";
-import Featured from "@/components/body/Featured";
-
+import Featured from "@/components/Body/Featured";
+import NewsCards from "@/components/Body/NewsCards"; // Add this import
+import ImageCarousel from "@/components/Carousel/ImageCarousel"; // Add this import
+import TodaysCard from "@/components/Body/TodaysCard"; // Add this import
+import AiNewsSection from "@/components/Body/AiNewsSection"; // Add this import
+import DevNewsSection from "@/components/Body/DevNewsSection"; // Add this import
+import BigImageCarousel from "@/components/Carousel/BigImageCarousel";
+import NewsLetterCard from "@/components/Body/NewsLetterCard";
 export default function Home() {
   const items = [
     {
@@ -77,7 +83,7 @@ export default function Home() {
       {/* Foreground: Header and Main Content */}
       <main className="relative z-10 w-full min-h-screen flex flex-col -mt-[600px] pt-[600px]">
         <header className="w-full flex-none">
-          <CardNav
+          <Header
             logo={<FaRegNewspaper size={32} />}
             logoAlt="Company Logo"
             items={items}
@@ -103,6 +109,32 @@ export default function Home() {
           >
             Weekly Top Tech News
           </GradientText>
+          <p className="mt-6 text-lg md:text-2xl text-neutral-300 max-w-3xl mx-auto text-center">
+            Stay updated with our weekly news, bringing you the latest trends,
+            insights, and developments from around the world — with a special
+            focus on AI.
+          </p>
+          <div className="mt-12">
+            <NewsCards />
+          </div>
+          <div className="mt-16">
+            <ImageCarousel />
+          </div>
+          <div className="mt-16">
+            <TodaysCard />
+          </div>
+          <div className="mt-16">
+            <AiNewsSection />
+          </div>
+          <div className="mt-16">
+            <DevNewsSection />
+          </div>
+          <div className="mt-16">
+            <BigImageCarousel />
+          </div>
+          <div className="mt-16">
+            <NewsLetterCard />
+          </div>
         </section>
 
         <Footer />

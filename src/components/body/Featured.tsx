@@ -5,6 +5,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 
 const carouselItems = [
@@ -12,46 +13,50 @@ const carouselItems = [
     image:
       "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&q=80",
     title: "AI Revolutionizes Healthcare",
-    time: "2 hours ago",
+    description: "AI is transforming patient care, diagnostics, and research.",
   },
   {
     image:
       "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=1200&q=80",
     title: "Quantum Computing Breakthrough",
-    time: "4 hours ago",
+    description: "New quantum algorithms promise faster computations.",
   },
   {
     image:
       "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=1200&q=80",
     title: "Self-driving Cars Update",
-    time: "6 hours ago",
+    description: "Autonomous vehicles are now safer and more reliable.",
   },
 ];
 
 const sideCards = [
   {
-    image: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=1600&q=90",
+    image:
+      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=1600&q=90",
     headline: "Meta launches new AI chip",
     time: "Just now",
     date: "13 Jan 2024",
     read: "5 min read",
   },
   {
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1600&q=90",
+    image:
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1600&q=90",
     headline: "OpenAI releases GPT-5",
     time: "10 min ago",
     date: "12 Jan 2024",
     read: "7 min read",
   },
   {
-    image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=1600&q=90",
+    image:
+      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=1600&q=90",
     headline: "Tesla unveils new battery tech",
     time: "30 min ago",
     date: "11 Jan 2024",
     read: "4 min read",
   },
   {
-    image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=1600&q=90",
+    image:
+      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=1600&q=90",
     headline: "Apple Vision Pro review",
     time: "1 hour ago",
     date: "10 Jan 2024",
@@ -69,6 +74,12 @@ export default function Featured() {
             {carouselItems.map((item, idx) => (
               <CarouselItem key={idx}>
                 <div className="relative rounded-2xl overflow-hidden shadow-lg w-full h-140">
+                  {/* Badge in top-left */}
+                  <div className="absolute top-4 left-8 z-10">
+                    <Badge className="bg-white text-black font-semibold px-5 py-2 text-base shadow-lg">
+                      Featured Post
+                    </Badge>
+                  </div>
                   <Image
                     src={item.image}
                     alt={item.title}
@@ -77,12 +88,12 @@ export default function Featured() {
                     priority={idx === 0}
                   />
                   <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent px-6 py-4">
-                    <span className="text-xs text-neutral-300 font-medium">
-                      {item.time}
-                    </span>
                     <h3 className="text-2xl font-bold text-white mt-1">
                       {item.title}
                     </h3>
+                    <p className="text-sm text-neutral-200 mt-2">
+                      {item.description}
+                    </p>
                   </div>
                 </div>
               </CarouselItem>
