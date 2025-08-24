@@ -20,7 +20,7 @@ const images = [
 
 export default function BigImageCarousel() {
   return (
-    <div className="w-full mx-auto">
+    <section className="w-full mx-auto mt-16">
       <Carousel
         plugins={[
           Autoplay({
@@ -53,6 +53,6 @@ export default function BigImageCarousel() {
           ))}
         </CarouselContent>
       </Carousel>
-    </div>
+    </section>
   );
 }

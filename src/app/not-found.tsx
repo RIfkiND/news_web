@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function NotFound() {
@@ -14,13 +14,13 @@ export default function NotFound() {
         className="max-w-md w-full text-center"
       >
         <div className="mb-10 relative h-64 w-full">
-          <Image
+          {/* <Image
             src="/assets/ilustrasi/404.svg"
             alt="Page not found"
             fill
             className="object-contain"
             priority
-          />
+          /> */}
         </div>
 
         <h1 className="text-xl md:text-4xl font-bold text-gray-800 mb-4">

@@ -62,51 +62,53 @@ const news = [
 
 export default function NewsCards() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      {news.map((item, idx) => (
-        <motion.div
-          key={idx}
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: idx * 0.08 }}
-          viewport={{ once: true, amount: 0.4 }}
-        >
-          <Card className="overflow-hidden shadow-lg bg-neutral-900 border-none group h-full flex flex-col">
-            <CardHeader className="p-0">
-              <div className="pt-1 px-2 pb-2">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  width={600}
-                  height={300}
-                  className="w-full h-48 object-cover rounded-lg "
-                />
-              </div>
-            </CardHeader>
-            <CardContent className="p-6 flex flex-col flex-1 justify-between">
-              <div>
-                <div className="flex items-center gap-4 text-xs text-neutral-400 mb-2">
-                  <span>{item.date}</span>
-                  <span>·</span>
-                  <span>{item.read}</span>
+    <section className="mt-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {news.map((item, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: idx * 0.08 }}
+            viewport={{ once: true, amount: 0.4 }}
+          >
+            <Card className="overflow-hidden shadow-lg bg-neutral-900 border-none group h-full flex flex-col">
+              <CardHeader className="p-0">
+                <div className="pt-1 px-2 pb-2">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={600}
+                    height={300}
+                    className="w-full h-48 object-cover rounded-lg "
+                  />
                 </div>
-                <CardTitle className="text-xl font-bold text-white mb-2">
-                  {item.title}
-                </CardTitle>
-              </div>
-              <a
-                href="#"
-                className="mt-6 w-full text-orange-400 underline underline-offset-4 font-medium transition-colors text-left group"
-              >
-                Read More
-                <span className="ml-2 inline-block transition-transform duration-200 group-hover:translate-x-1">
-                  &rarr;
-                </span>
-              </a>
-            </CardContent>
-          </Card>
-        </motion.div>
-      ))}
-    </div>
+              </CardHeader>
+              <CardContent className="p-6 flex flex-col flex-1 justify-between">
+                <div>
+                  <div className="flex items-center gap-4 text-xs text-neutral-400 mb-2">
+                    <span>{item.date}</span>
+                    <span>·</span>
+                    <span>{item.read}</span>
+                  </div>
+                  <CardTitle className="text-xl font-bold text-white mb-2">
+                    {item.title}
+                  </CardTitle>
+                </div>
+                <a
+                  href="#"
+                  className="mt-6 w-full text-orange-400 underline underline-offset-4 font-medium transition-colors text-left group"
+                >
+                  Read More
+                  <span className="ml-2 inline-block transition-transform duration-200 group-hover:translate-x-1">
+                    &rarr;
+                  </span>
+                </a>
+              </CardContent>
+            </Card>
+          </motion.div>
+        ))}
+      </div>
+    </section>
   );
 }
