@@ -3,7 +3,6 @@ import DarkVeil from "@/components/bits/DarkVeil";
 import Header from "@/components/Header/Header";
 import React from "react";
 import GradientText from "@/components/bits/GradientText";
-import { Skeleton } from "@/components/ui/skeleton";
 import Footer from "@/components/Footer/Footer";
 import Featured from "@/components/Body/Featured";
 import NewsCards from "@/components/Body/NewsCards";

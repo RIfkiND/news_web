@@ -94,7 +94,7 @@ export default function PostPage() {
             {Array.isArray(post.content) ? (
               post.content.map((para, idx) => <p key={idx}>{para}</p>)
             ) : (
-              // eslint-disable-next-line react/no-danger
+              
               <div dangerouslySetInnerHTML={{ __html: post.content }} />
             )}
           </article>
