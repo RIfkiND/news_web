@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Poppins } from "next/font/google";
+import Header from "@/components/Header/Header"; // <-- Import Header
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -16,7 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased ${poppins.className}`}>{children}</body>
+      <body className={`antialiased ${poppins.className}`}>
+        <Header />
+        <main>{children}</main>
+      </body>
     </html>
   );
 }

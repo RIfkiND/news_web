@@ -36,7 +36,7 @@ const devCards = [
 
 export default function DevNewsSection() {
   return (
-    <div className="w-full flex flex-col gap-8 mt-16">
+    <section className="w-full flex flex-col gap-8 mt-16">
       <motion.h2
         className="text-5xl font-extrabold text-white mb-2 text-left"
         initial={{ opacity: 0, y: 40 }}
@@ -85,6 +85,6 @@ export default function DevNewsSection() {
           </motion.div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

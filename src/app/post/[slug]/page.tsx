@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
-import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import { useParams } from "next/navigation";
 import posts from "@/components/Data/post";
@@ -20,7 +19,6 @@ export default function PostPage() {
   if (!post) {
     return (
       <div className="min-h-screen bg-black text-white flex flex-col">
-        <Header />
         <main className="flex-1 w-full max-w-4xl mx-auto px-4 md:px-0 py-16 flex flex-col items-center justify-center">
           <h1 className="text-3xl font-bold mb-4">Post Not Found</h1>
           <Link
@@ -37,7 +35,6 @@ export default function PostPage() {
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
-      <Header />
       <main className="flex-1 w-full max-w-4xl mx-auto px-4 md:px-0 py-16">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -76,7 +73,7 @@ export default function PostPage() {
             />
           </div>
           {/* Additional Images */}
-          {post.images && post.images.length > 0 && (
+          {/* {post.images && post.images.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
               {post.images.map((img, idx) => (
                 <div key={idx} className="w-full h-64 relative rounded-xl overflow-hidden">
@@ -89,7 +86,7 @@ export default function PostPage() {
                 </div>
               ))}
             </div>
-          )}
+          )} */}
           <article className="prose prose-invert prose-lg max-w-none">
             {Array.isArray(post.content) ? (
               post.content.map((para, idx) => <p key={idx}>{para}</p>)

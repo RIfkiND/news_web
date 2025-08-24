@@ -47,7 +47,7 @@ const todaysNews = [
 
 export default function TodaysCard() {
   return (
-    <div className="flex flex-col gap-8">
+    <section className="flex flex-col gap-8 mt-16">
       <motion.h2
         className="text-6xl font-extrabold text-white mb-2 text-left"
         initial={{ opacity: 0, y: 40 }}
@@ -101,6 +101,6 @@ export default function TodaysCard() {
           </div>
         </motion.div>
       ))}
-    </div>
+    </section>
   );
 }
