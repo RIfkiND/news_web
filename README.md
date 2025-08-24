@@ -1,5 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📰 TechNews Portal
 
+A modern, animated tech news portal built with [Next.js](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), [Aceternity UI](https://aceternity.com/), and [React Bits](https://reactbits.com/).
+
+<div align="center">
+  <img src="/public/news.png" alt="TechNews Portal Screenshot" width="80%" style="border-radius:16px; box-shadow:0 4px 24px #0002; margin:2rem 0;" />
+</div>
+
+## ✨ Features
+
+- ⚡ Framer Motion animated transitions and reveals
+- 🎨 Gradient animated headlines with custom `GradientText`
+- 📰 Dynamic news cards, carousels, and featured sections
+- 🤖 AI, Dev, and Trending news categories
+- 🌙 Glassmorphism header, dark mode, and responsive design
+- 📬 Newsletter subscription & interactive footer
+- 🖼️ Rich post pages with alternating text & images
+- 🔗 Related links, author avatars, and more!
+
+## 🚀 Tech Stack
+
+- Next.js & TypeScript
+- Tailwind CSS
+- Framer Motion
+- Aceternity UI
+- React Bits
+- React Icons
+
+---
 ## Getting Started
 
 First, run the development server:
