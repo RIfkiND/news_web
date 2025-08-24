@@ -4,14 +4,14 @@ import Header from "@/components/Header/Header";
 import React from "react";
 import GradientText from "@/components/bits/GradientText";
 import Footer from "@/components/Footer/Footer";
-import Featured from "@/components/BodyTemp/Featured";
-import NewsCards from "@/components/BodyTemp/NewsCards";
+import Featured from "@/components/Body/Featured";
+import NewsCards from "@/components/Body/NewsCards";
 import ImageCarousel from "@/components/Carousel/ImageCarousel";
-import TodaysCard from "@/components/BodyTemp/TodaysCard";
-import AiNewsSection from "@/components/BodyTemp/AiNewsSection";
-import DevNewsSection from "@/components/BodyTemp/DevNewsSection";
+import TodaysCard from "@/components/Body/TodaysCard";
+import AiNewsSection from "@/components/Body/AiNewsSection";
+import DevNewsSection from "@/components/Body/DevNewsSection";
 import BigImageCarousel from "@/components/Carousel/BigImageCarousel";
-import NewsLetterCard from "@/components/BodyTemp/NewsLetterCard";
+import NewsLetterCard from "@/components/Body/NewsLetterCard";
 import { motion } from "framer-motion";
 
 export default function Home() {
