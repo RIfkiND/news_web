@@ -1,5 +1,7 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 const devCards = [
   {
@@ -35,13 +37,23 @@ const devCards = [
 export default function DevNewsSection() {
   return (
     <div className="w-full flex flex-col gap-8 mt-16">
-      <h2 className="text-5xl font-extrabold text-white mb-2 text-left">
+      <motion.h2
+        className="text-5xl font-extrabold text-white mb-2 text-left"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true, amount: 0.7 }}
+      >
         Dev News
-      </h2>
+      </motion.h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
         {devCards.map((item, idx) => (
-          <div
+          <motion.div
             key={idx}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 + idx * 0.08 }}
+            viewport={{ once: true, amount: 0.4 }}
             className="flex flex-row items-center rounded-2xl overflow-hidden shadow-md bg-neutral-900 h-[245px] min-h-[245px] w-full"
             style={{ minHeight: 230 }}
           >
@@ -62,12 +74,15 @@ export default function DevNewsSection() {
                   {item.read}
                 </span>
               </div>
-              <div className="font-semibold text-xl mt-5 text-white leading-snug line-clamp-6">
+              <Link
+                href="#"
+                className="font-semibold text-xl mt-5 text-white leading-snug line-clamp-6 hover:underline transition-colors"
+              >
                 {item.title} — The latest insights and analysis on developer
                 tools, frameworks, and open source.
-              </div>
+              </Link>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

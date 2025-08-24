@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const todaysNews = [
   {
@@ -47,12 +48,22 @@ const todaysNews = [
 export default function TodaysCard() {
   return (
     <div className="flex flex-col gap-8">
-      <h2 className="text-6xl font-extrabold text-white mb-2 text-left">
+      <motion.h2
+        className="text-6xl font-extrabold text-white mb-2 text-left"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true, amount: 0.7 }}
+      >
         News Today
-      </h2>
+      </motion.h2>
       {todaysNews.map((item, idx) => (
-        <div
+        <motion.div
           key={idx}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: idx * 0.08 }}
+          viewport={{ once: true, amount: 0.5 }}
           className="flex flex-col md:flex-row rounded-lg shadow-lg overflow-hidden"
         >
           <div className="md:w-[60%] w-full relative flex items-stretch">
@@ -88,7 +99,7 @@ export default function TodaysCard() {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

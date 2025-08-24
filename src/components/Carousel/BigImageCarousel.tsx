@@ -6,7 +6,8 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import Image from "next/image";
-
+import Autoplay from "embla-carousel-autoplay";
+import { motion } from "framer-motion";
 // High-quality, tech-related images (Unsplash, Pexels, etc.)
 const images = [
   "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&q=80", // Tech workspace
@@ -20,11 +21,23 @@ const images = [
 export default function BigImageCarousel() {
   return (
     <div className="w-full mx-auto">
-      <Carousel>
+      <Carousel
+        plugins={[
+          Autoplay({
+            delay: 3000,
+          }),
+        ]}
+      >
         <CarouselContent>
           {images.map((src, idx) => (
             <CarouselItem key={idx}>
-              <div className="flex justify-center items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: idx * 0.08 }}
+                viewport={{ once: true, amount: 0.5 }}
+                className="flex justify-center items-center"
+              >
                 <div className="w-full h-[500px] rounded-[2rem] overflow-hidden shadow-lg">
                   <Image
                     src={src}
@@ -35,7 +48,7 @@ export default function BigImageCarousel() {
                     priority={idx === 0}
                   />
                 </div>
-              </div>
+              </motion.div>
             </CarouselItem>
           ))}
         </CarouselContent>

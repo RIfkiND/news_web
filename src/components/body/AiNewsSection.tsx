@@ -5,6 +5,10 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import Link from "next/link";
+import Autoplay from "embla-carousel-autoplay";
+import { motion } from "framer-motion";
+import * as React from "react";
 
 const carouselImages = [
   {
@@ -44,30 +48,54 @@ const aiCards = [
 export default function AiNewsSection() {
   return (
     <div className="w-full flex flex-col gap-8">
-      <h2 className="text-6xl font-extrabold text-white mb-2 text-left">
+      <motion.h2
+        className="text-6xl font-extrabold text-white mb-2 text-left"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true, amount: 0.7 }}
+      >
         Ai News
-      </h2>
+      </motion.h2>
       <div className="flex flex-col lg:flex-row items-stretch gap-1">
         {/* Carousel */}
         <div className="lg:w-[52%] w-full flex lg:justify-start">
-          <Carousel>
+          <Carousel
+            plugins={[
+              Autoplay({
+                delay: 3000,
+              }),
+            ]}
+          >
             <CarouselContent>
               {carouselImages.map((item, idx) => (
                 <CarouselItem key={idx}>
-                  <div className="w-full h-[510px] rounded-2xl overflow-hidden shadow-lg flex items-center justify-center relative max-w-xl">
-                    <Image
-                      src={item.src}
-                      alt={item.title}
-                      width={700}
-                      height={500}
-                      className="object-cover w-full h-full"
-                      priority={idx === 0}
-                    />
-                    <div className="absolute bottom-0 left-0 w-full bg-black/60 text-white p-4">
-                      <h3 className="text-xl font-bold">{item.title}</h3>
-                      <p className="text-sm">{item.description}</p>
-                    </div>
-                  </div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: idx * 0.1 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    className="w-full h-[510px] rounded-2xl overflow-hidden shadow-lg flex items-center justify-center relative max-w-xl"
+                  >
+                    <Link
+                      href="#"
+                      className="w-full h-full group block"
+                      tabIndex={0}
+                    >
+                      <Image
+                        src={item.src}
+                        alt={item.title}
+                        width={700}
+                        height={500}
+                        className="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105"
+                        priority={idx === 0}
+                      />
+                      <div className="absolute bottom-0 left-0 w-full bg-black/60 text-white p-4">
+                        <h3 className="text-xl font-bold">{item.title}</h3>
+                        <p className="text-sm">{item.description}</p>
+                      </div>
+                    </Link>
+                  </motion.div>
                 </CarouselItem>
               ))}
             </CarouselContent>
@@ -76,8 +104,12 @@ export default function AiNewsSection() {
         {/* Side Cards */}
         <div className="flex flex-col gap-2 w-full lg:w-[48%]">
           {aiCards.map((item, idx) => (
-            <div
+            <motion.div
               key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 + idx * 0.08 }}
+              viewport={{ once: true, amount: 0.4 }}
               className="flex flex-row items-center rounded-2xl overflow-hidden shadow-md bg-neutral-900 h-[245px] min-h-[245px] w-full"
               style={{ minHeight: 230 }}
             >
@@ -98,12 +130,15 @@ export default function AiNewsSection() {
                     {item.read}
                   </span>
                 </div>
-                <div className="font-semibold text-xl mt-5 text-white leading-snug line-clamp-6">
+                <Link
+                  href="#"
+                  className="font-semibold text-xl mt-5 text-white leading-snug line-clamp-6 hover:underline transition-colors"
+                >
                   {item.title} — The latest insights and analysis on artificial
                   intelligence trends and impacts.
-                </div>
+                </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

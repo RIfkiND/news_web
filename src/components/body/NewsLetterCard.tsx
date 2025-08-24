@@ -1,22 +1,45 @@
 "use client";
 import { FaEnvelope } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export default function NewsLetterCard() {
   return (
-    <div className="w-full flex flex-col gap-6 mt-16">
-      <h2 className="text-4xl font-extrabold text-white mb-2 text-left">
+    <motion.div
+      className="w-full flex flex-col gap-6 mt-16"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7 }}
+      viewport={{ once: true, amount: 0.6 }}
+    >
+      <motion.h2
+        className="text-4xl font-extrabold text-white mb-2 text-left"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.1 }}
+        viewport={{ once: true, amount: 0.7 }}
+      >
         Subscribe to our Newsletter
-      </h2>
-      <p className="text-neutral-300 text-lg mb-2 text-left max-w-2xl">
+      </motion.h2>
+      <motion.p
+        className="text-neutral-300 text-lg mb-2 text-left max-w-2xl"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.18 }}
+        viewport={{ once: true, amount: 0.7 }}
+      >
         Get the latest tech and AI news delivered straight to your inbox. Stay
         informed with weekly updates, insights, and exclusive content!
-      </p>
-      <div
+      </motion.p>
+      <motion.div
         className="flex flex-row items-center rounded-2xl shadow-md px-8 py-8 w-full mx-auto"
         style={{
           background:
             "linear-gradient(90deg, #f3a128 0%, #f6a029 50%, #f6a029 100%)",
         }}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.25 }}
+        viewport={{ once: true, amount: 0.6 }}
       >
         <div className="flex-1">
           <div className="text-2xl font-semibold text-white mb-2">
@@ -46,7 +69,7 @@ export default function NewsLetterCard() {
             </button>
           </div>
         </form>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
