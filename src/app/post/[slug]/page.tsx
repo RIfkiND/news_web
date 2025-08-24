@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import { useParams } from "next/navigation";
-import posts from "@/components/Data/post";
+import posts from "@/components/DataTemp/post";
 
 // Example posts database (replace with real fetch in production)
 // If content is a string, treat as HTML (WYSIWYG); if array, treat as paragraphs.
