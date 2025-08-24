@@ -9,19 +9,10 @@ interface ResponsiveLayoutProps {
 
 export default function ResponsiveLayout({ children }: ResponsiveLayoutProps) {
   return (
-    <>
-      {/* Mobile Layout - Show on mobile screens only via CSS */}
-      <div className="mobile-only  relative min-h-0">
+    <div className="min-h-screen bg-black flex justify-center items-start">
+      <div className="w-full max-w-3xl px-4 py-8">
         {children}
       </div>
-
-      {/* Desktop Layout - Show on desktop screens only via CSS */}
-      <div
-        className="desktop-only  "
-
-      >
-        {children}
-      </div>
-    </>
+    </div>
   );
 }
