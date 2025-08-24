@@ -18,9 +18,9 @@ export default function Home() {
   return (
     <div className="relative min-h-screen w-full z-0 bg-black">
       {/* Background only at the top */}
-      {/* <div style={{ width: "100%", height: "600px", position: "relative" }}>
+      <div style={{ width: "100%", height: "600px", position: "relative" }}>
         <DarkVeil />
-      </div> */}
+      </div>
 
       {/* Foreground: Header and Main Content */}
       <main className="relative z-10 w-full min-h-screen flex flex-col -mt-[600px] pt-[600px]">
