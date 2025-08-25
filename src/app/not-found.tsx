@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-// import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function NotFound() {
@@ -13,28 +12,29 @@ export default function NotFound() {
         transition={{ duration: 0.5 }}
         className="max-w-md w-full text-center"
       >
-        <div className="mb-10 relative h-64 w-full">
-          {/* <Image
-            src="/assets/ilustrasi/404.svg"
-            alt="Page not found"
-            fill
-            className="object-contain"
-            priority
-          /> */}
+        <div className="mb-10 relative w-full">
+          <motion.h1
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="text-9xl font-extrabold text-gray-300 select-none"
+          >
+            404
+          </motion.h1>
         </div>
 
-        <h1 className="text-xl md:text-4xl font-bold text-gray-800 mb-4">
-          Halaman Tidak Ditemukan
-        </h1>
+        <h2 className="text-xl md:text-4xl font-bold text-gray-800 mb-4">
+            Page Not Found
+        </h2>
 
         <p className="text-gray-600 mb-8">
-          Maaf, halaman yang Anda cari tidak dapat ditemukan. Halaman mungkin
-          telah dipindahkan, dihapus, atau tidak pernah ada.
+          Sorry, the page you are looking for could not be found. 
+          It may have been moved, deleted, or never existed.
         </p>
 
         <Link
           href="/"
-          className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-blue-700 transition-colors"
+          className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-orange-500 transition-colors"
         >
           Kembali ke Beranda
         </Link>
