@@ -36,7 +36,7 @@ export default function NotFound() {
           href="/"
           className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-orange-500 transition-colors"
         >
-          Kembali ke Beranda
+          Back to Home
         </Link>
       </motion.div>
     </div>
